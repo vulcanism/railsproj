@@ -1,0 +1,3 @@
+class Cryptid < ApplicationRecord
+
+end
