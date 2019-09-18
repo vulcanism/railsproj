@@ -1,0 +1,3 @@
+class CryptidsController < ApplicationController
+
+end
