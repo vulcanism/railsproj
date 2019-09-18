@@ -1,1 +1,13 @@
-<h2>The Login Page!</h2>
+<h2>Log In</h2>
+
+<%= form_for :user do |f| %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, required:true %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.submit "Log In" %>
+
+<% end %>
