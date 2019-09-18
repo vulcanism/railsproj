@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_191006) do
+ActiveRecord::Schema.define(version: 2019_09_18_191824) do
+
+  create_table "cryptids", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "size"
+    t.string "type"
+  end
+
+  create_table "observations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "date"
+    t.string "note"
+    t.integer "user_id"
+    t.integer "cryptid_id"
+    t.index ["cryptid_id"], name: "index_observations_on_cryptid_id"
+    t.index ["user_id"], name: "index_observations_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
