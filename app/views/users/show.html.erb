@@ -1,3 +1,11 @@
 <h2>Welcome, <%= @user.username %></h2>
+<br>
+<% @user.cryptids.uniq.each do |cryptid| %>
+<p>Cryptid: <%= link_to cryptid.name, cryptid %>
+<% end %>
+
+<br>
+<%= link_to "Record New Observation", new_observation_path %><br>
+<%= link_to "See Your Observations", user_observations_path(@user) %><br>
 
 <%= link_to "Log Out", logout_path, method: :delete %>

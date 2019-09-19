@@ -17,6 +17,10 @@ class ObservationsController < ApplicationController
         end
     end
 
+    def show
+        @observation = Observation.find_by(id: params[:id])
+    end
+
     private
 
     def observation_params
