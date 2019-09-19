@@ -10,18 +10,11 @@ class CryptidsController < ApplicationController
 
     def create
         @cryptid = Cryptid.new(cryptid_params)
-        @observation = Observation.find(params[:cryptid][:observation_id])
-
-        if @observation.user_id != session[:user_id]
-            flash[:message] = "Error: Does not belong to user"
-            @observations = Observation.all
-            render "observations/index"
-        elsif @cryptid.save
-            @observation.cryptid = @cryptid
-            @observation.save        
+        if @cryptid.save
+         redirect_to cryptids_path(@cryptid)
         else
-            render :new
-        end
+         render :new
+        end 
     end
 
     def show
@@ -31,7 +24,7 @@ class CryptidsController < ApplicationController
     private
 
     def cryptid_params
-        params.require(:cryptid).permit(:name, :location, :size, :type)
+        params.require(:cryptid).permit(:name, :location, :size, :classification)
     end
 
 

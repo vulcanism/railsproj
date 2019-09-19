@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_191824) do
+ActiveRecord::Schema.define(version: 2019_09_19_195121) do
 
   create_table "cryptids", force: :cascade do |t|
     t.string "name"
     t.string "location"
     t.string "size"
-    t.string "type"
+    t.string "classification"
   end
 
   create_table "observations", force: :cascade do |t|

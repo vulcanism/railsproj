@@ -1,18 +1,16 @@
 <%= form_for @cryptid do |f| %>
 
-<%= f.hidden_field :observation_id %>
-
 <%= f.label  "Name:" %>
-<%= f.text_field :name %>
+<%= f.text_field :name %><br>
 
 <%= f.label  "Location:" %>
-<%= f.text_field :location %>
+<%= f.text_field :location %><br>
 
 <%= f.label  "Size:" %>
-<%= f.text_field :size %>
+<%= f.text_field :size %><br>
 
-<%= f.label  "Type:" %>
-<%= f.text_field :type %>
+<%= f.label  "Classification:" %>
+<%= f.text_field :classification %><br>
 
 <%= f.submit "Add Cryptid" %>
 
