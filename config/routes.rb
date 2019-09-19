@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get "/signup" => "users#new"
   post "/signup" => "users#create"
 
+  resources :cryptids do
+    resources :observations, only: [:index, :new, :create]
+  end
+
   resources :users
   resources :observations
   resources :cryptids
