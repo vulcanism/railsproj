@@ -4,9 +4,16 @@ class CryptidsController < ApplicationController
     end
     
     def new
+        @cryptid = Cryptid.new
     end
 
     def create
+        @cryptid = Cryptid.new(cryptid_params)
+        if @cryptid.save
+            redirect_to cryptid_path(@cryptid)
+        else
+            render :new
+        end
     end
 
     def show
