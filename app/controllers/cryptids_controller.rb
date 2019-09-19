@@ -1,6 +1,7 @@
 class CryptidsController < ApplicationController
 
     def index
+        @cryptids = Cryptid.all
     end
     
     def new
@@ -17,6 +18,7 @@ class CryptidsController < ApplicationController
     end
 
     def show
+        @cryptid = Cryptid.find_by(id: params[:id])
     end
 
     private
