@@ -1,0 +1,9 @@
+<h2>Observations Index</h2>
+
+<% @observations.each do |observation| %>
+    <p>Observation: <%= link_to observation.name , observation %></p>
+    <br>
+<% end %>
+
+<br>
+<%= link_to "Back Home", user_path(session[:user_id]) %>
