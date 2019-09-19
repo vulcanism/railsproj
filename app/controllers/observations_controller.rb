@@ -1,6 +1,7 @@
 class ObservationsController < ApplicationController
 
-    def index
+    def index        
+        @observations = User.find(params[:user_id]).observations
     end
     
     def new
