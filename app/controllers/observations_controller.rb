@@ -16,7 +16,11 @@ class ObservationsController < ApplicationController
         else
             render :new
         end
-    end    
+    end
+    
+    def show
+        @observation = Observation.find(params[:id])
+    end
 
     private
 
