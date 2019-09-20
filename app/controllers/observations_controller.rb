@@ -14,7 +14,7 @@ class ObservationsController < ApplicationController
 
     def create
         @observation = Observation.new(observation_params)
-        @observation.user_id = session[:user_id]
+        @observation.user_id = session[:user_id]               
         if @observation.save
             redirect_to @observation
         else
@@ -29,7 +29,7 @@ class ObservationsController < ApplicationController
     private
 
     def observation_params
-        params.require(:observation).permit(:name, :date, :note, :user_id, :cryptid_id)
+        params.require(:observation).permit(:name, :date, :note, :user_id)
     end
 
 end
