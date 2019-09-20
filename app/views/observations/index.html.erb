@@ -1,7 +1,7 @@
 <h2>Observations Index</h2>
 
 <% @observations.each do |observation| %>
-    <p>Observation: <%= link_to observation.name, observation %></p>
+    <p><%= link_to observation.name, observation %></p>
     <br>
 <% end %>
 

@@ -3,3 +3,5 @@
 <h2><%= @observation.name %></h2>
 <h3>Date: <%= @observation.date.strftime("%Y / %m / %d") %></h3>
 <p>Notes: <%= @observation.note %></p>
+
+<%= link_to "Go Back", user_path(current_user) %>
