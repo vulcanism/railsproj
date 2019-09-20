@@ -1,5 +1,5 @@
 <h2>Observation Show Page</h2>
 
-<h2>Title: <%= @observation.name %></h2>
-<h3>Date: <%= @observation.date %></h3>
+<h2><%= @observation.name %></h2>
+<h3>Date: <%= @observation.date.strftime("%Y / %m / %d") %></h3>
 <p>Notes: <%= @observation.note %></p>
