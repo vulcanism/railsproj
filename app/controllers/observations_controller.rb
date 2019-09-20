@@ -1,7 +1,11 @@
 class ObservationsController < ApplicationController
 
-    def index        
-        @observations = User.find(params[:user_id]).observations
+    def index
+        if params[:cryptid_id]        
+            @observations = Cryptid.find_by(id: params[:cryptid_id]).observations
+        else
+            @observations = Observation.all
+        end        
     end
     
     def new

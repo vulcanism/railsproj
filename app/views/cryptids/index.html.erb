@@ -1,8 +1,10 @@
 <h2>Cryptids index page</h2>
 
-<% @cryptids.each do |f| %>
-<li><%= f.name %></li>
+<% @cryptids.each do |cryptid| %>
+<h2><%= link_to cryptid.name, cryptid %></h2>
 <br>
+<h3>Associated Observations:</h3>
+<li><%= link_to cryptid.observation.name, cryptid_observations_path(cryptid.observation) %></li>
 <% end %>
 
 <%= link_to "Go Back", user_path(current_user) %>
