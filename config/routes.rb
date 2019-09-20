@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     resources :observations, only: [:index]
   end
 
+  resources :observations, only: [:show] do
+    resources :cryptids, only: [:new]
+  end
+
   resources :users, only: [:show, :new, :create]
   resources :observations
   resources :cryptids
