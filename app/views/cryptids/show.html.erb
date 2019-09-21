@@ -3,12 +3,21 @@
 <p><b>Size:</b> <%= @cryptid.size %></p>
 <p><b>Classification:</b> <%= @cryptid.classification %></p>
 
+<br>
+<h2>Associated Observations:</h2>
 <% @cryptid.observations.each do |observation| %>
 <li><%= link_to observation.name, observation %></li>
 <% end %>
 
+<br>
+<br>
+<%= link_to "Edit Cryptid", edit_cryptid_path(@cryptid) %> 
+<br>
+<%= link_to "Delete", @cryptid, method: :delete %>
+<br>
+<br>
 <h2>Record New Observation:</h2>
-<%= form_for @cryptid.observations.build, as => :observation, url => cryptid_observations_path(@cryptid) do |f| %>
+<%= form_for @cryptid.observations.build, :as => :observation, :url => cryptid_observations_path(@cryptid) do |f| %>
 <%= f.hidden_field :cryptid_id %>
 
 <%= f.label  "Title:" %>

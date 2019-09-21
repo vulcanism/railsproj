@@ -32,7 +32,7 @@ class ObservationsController < ApplicationController
     end
 
     def update
-        if @observation.user_id != session[:user_id]
+        if @observation.user_id != current_user
             flash[:notice] = "Error, does not belong to user"
             @observations = Observation.all
             render :index
@@ -44,7 +44,7 @@ class ObservationsController < ApplicationController
     end
     
     def destroy
-        if @observation.user_id != session[:user_id]
+        if @observation.user_id != current_user
             flash[:notice] = "Error, does not belong to user"
             @observations = Observation.all
             render :index

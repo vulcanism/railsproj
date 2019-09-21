@@ -1,5 +1,6 @@
 class CryptidsController < ApplicationController
     before_action :set_cryptid, only: [:show, :edit, :update, :destroy]
+    helper_method :can_edit?
 
     def index
         @cryptids = Cryptid.all
