@@ -1,5 +1,6 @@
 <h2>Welcome, <%= @user.username %></h2>
 <br>
+<h3>Your Discoveries:</h3>
 <% @user.cryptids.each do |cryptid| %>
 <p><%= link_to cryptid.name, cryptid_path(cryptid) %></p>
 <% end %>

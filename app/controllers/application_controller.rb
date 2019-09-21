@@ -20,4 +20,12 @@ class ApplicationController < ActionController::Base
         end
         bool
     end
+
+    def can_edit_observation?(obs)
+        bool = false
+        if obs.user_id == session[:user_id]
+            bool = true
+        end
+        bool
+    end
 end

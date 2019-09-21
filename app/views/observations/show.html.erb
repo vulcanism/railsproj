@@ -1,7 +1,23 @@
-<h2>Observation Show Page</h2>
+<h2>Observation</h2>
 
 <h2><%= @observation.name %></h2>
 <h3>Date: <%= @observation.date.strftime("%Y / %m / %d") %></h3>
 <p>Notes: <%= @observation.note %></p>
 
+<br>
+<% if @observation.cryptid %>
+<%= link_to "Show Cryptid", cryptid_path(@observation.cryptid) %><br>
+<% else %>
+<%= link_to "Create New Cryptid", new_observation_cryptid_path(@observation) %><br>
+<% end %>
+
+<br>
+<% if can_edit_observation?(@observation) %>
+<%= link_to "Edit Observation", edit_observation_path(@observation) %><br> 
+<br>
+<%= link_to "Delete", @observation, method: :delete %>
+<% end %>
+
+<br>
+<br>
 <%= link_to "Go Back", user_path(current_user) %>
