@@ -9,6 +9,8 @@ class ObservationsController < ApplicationController
     end
     
     def new
+        @cryptid = Cryptid.find_by(id: params[:cryptid_id])
+        @user = User.find(session[:user_id])
         @observation = Observation.new
     end
 
@@ -29,7 +31,7 @@ class ObservationsController < ApplicationController
     private
 
     def observation_params
-        params.require(:observation).permit(:name, :date, :note, :user_id)
+        params.require(:observation).permit(:name, :date, :note, :user_id, :cryptid_id)
     end
 
 end

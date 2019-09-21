@@ -1,13 +1,15 @@
 <h2>Welcome, <%= @user.username %></h2>
 <br>
 <% @user.cryptids.each do |cryptid| %>
-<p>Cryptid: <%= link_to cryptid.name, cryptid %>
+<p><%= link_to cryptid.name, cryptid_path(cryptid) %></p>
 <% end %>
 
 <br>
+<%= link_to "All Cryptids", cryptids_path %><br>
+<br>
 <%= link_to "View Your Observations", user_observations_path(@user) %><br>
 <br>
-<%= link_to "New Cryptid Discovery", new_observation_path %><br>
+<%= link_to "New Cryptid Discovery", new_cryptid_path %><br>
 
 <br>
 <%= link_to "Log Out", logout_path, method: :delete %>
