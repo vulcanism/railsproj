@@ -1,11 +1,11 @@
 class ObservationsController < ApplicationController
 
     def index
-        if params[:cryptid_id]        
-            @observations = Cryptid.find_by(id: params[:cryptid_id]).observations
+        if params[:cryptid_id] && Cryptid.find_by(id: params[:cryptid_id])
+            @observations = Cryptid.find_by(id: params[:cryptid_id]).observations          
         else
             @observations = Observation.all
-        end        
+        end    
     end
     
     def new
