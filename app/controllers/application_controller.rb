@@ -9,5 +9,15 @@ class ApplicationController < ActionController::Base
 
     def logged_in?
         !!current_user
-    end    
+    end
+    
+    def can_edit?(obj)
+        bool = false
+        obj.observations.each do |o|
+            if o.user_id == session[:user_id]
+                bool=true
+            end
+        end
+        bool
+    end
 end
