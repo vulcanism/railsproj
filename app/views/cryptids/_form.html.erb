@@ -12,6 +12,14 @@
 <%= f.label  "Classification:" %>
 <%= f.text_field :classification %><br>
 
+<br>
+<%= f.label "Or, if Already Discovered, Select Existing Cryptid:" %><br>
+<%= f.collection_select :id, Cryptid.all, :id, :name, {include_blank: true} %>
+
+<%= hidden_field(:cryptid, :observation_id, :value => @observation ? @observation.id : params[:observation_id]) %>
+
+<br>
+<br>
 <%= f.submit "Add Cryptid" %>
 
 <% end %>

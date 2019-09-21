@@ -1,6 +1,6 @@
 <h2>Welcome, <%= @user.username %></h2>
 <br>
-<% @user.cryptids.uniq.each do |cryptid| %>
+<% @user.cryptids.each do |cryptid| %>
 <p>Cryptid: <%= link_to cryptid.name, cryptid %>
 <% end %>
 
