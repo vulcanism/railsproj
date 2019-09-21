@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get "/signup" => "users#new"
   post "/signup" => "users#create"
 
-  resources :cryptids do
-    resources :observations, only: [:index, :new, :create]
+  resources :cryptids, only: [:show] do
+    resources :observations, only: [:index]
   end
 
   resources :users, only: [:show] do
@@ -24,5 +24,5 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :new, :create]
   resources :observations
-  resources :cryptids
+  resources :cryptids, except [:new]  
 end
