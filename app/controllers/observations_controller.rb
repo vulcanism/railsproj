@@ -1,4 +1,5 @@
 class ObservationsController < ApplicationController
+    before_action :set_observation, only: [:show, :edit, :update, :destroy]
 
     def index
         if params[:cryptid_id] && Cryptid.find_by(id: params[:cryptid_id])
@@ -24,11 +25,41 @@ class ObservationsController < ApplicationController
         end
     end
     
-    def show
-        @observation = Observation.find(params[:id])
+    def show        
+    end
+
+    def edit
+    end
+
+    def update
+        if @observation.user_id != session[:user_id]
+            flash[:notice] = "Error, does not belong to user"
+            @observations = Observation.all
+            render :index
+          elsif @observation.update(observation_params)
+            redirect_to @observation
+          else
+            render :edit
+          end
+    end
+    
+    def destroy
+        if @observation.user_id != session[:user_id]
+            flash[:notice] = "Error, does not belong to user"
+            @observations = Observation.all
+            render :index
+        else
+            @observation.destroy
+            redirect_to user_path(session[:user_id])
+        end
     end
 
     private
+
+    def set_observation
+        @observation = Observation.find(params[:id])
+    end
+  
 
     def observation_params
         params.require(:observation).permit(:name, :date, :note, :user_id, :cryptid_id)
