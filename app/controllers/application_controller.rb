@@ -11,11 +11,11 @@ class ApplicationController < ActionController::Base
         !!current_user
     end
     
-    def can_edit?(obj)
+    def can_edit?(model)
         bool = false
-        obj.observations.each do |o|
-            if o.user_id == session[:user_id]
-                bool=true
+        model.observations.each do |ob|
+            if ob.user_id == session[:user_id]
+                bool = true
             end
         end
         bool

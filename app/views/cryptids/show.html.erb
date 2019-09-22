@@ -11,9 +11,11 @@
 
 <br>
 <br>
+<% if can_edit?(@cryptid) %>
 <%= link_to "Edit Cryptid", edit_cryptid_path(@cryptid) %> 
 <br>
 <%= link_to "Delete", @cryptid, method: :delete %>
+<% end %>
 <br>
 <br>
 <h2>Record New Observation:</h2>
