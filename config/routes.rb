@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get "/signup" => "users#new"
   post "/signup" => "users#create"
 
+  get "/auth/github/callback" => "sessions#create"
+
   get "/bylocation" => "cryptids#bylocation"
 
   resources :cryptids do
