@@ -1,0 +1,5 @@
+<h2>Sighted cryptids by location:</h2>
+
+<% @cryptids.each do |cryptid| %>
+<h3><%= link_to cryptid.name, cryptid %></h3>
+<% end %>

@@ -5,6 +5,10 @@ class CryptidsController < ApplicationController
     def index
         @cryptids = Cryptid.all
     end
+
+    def bylocation
+        @cryptids = Cryptid.all.order_by_location
+    end
     
     def new
         @cryptid = Cryptid.new
