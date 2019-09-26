@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get "/bylocation" => "cryptids#bylocation"
 
+  get "/mostobs" => "users#mostobs"
+
   resources :cryptids do
     resources :observations, only: [:index, :new, :create]
   end

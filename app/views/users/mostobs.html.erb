@@ -1,0 +1,5 @@
+<h2>The user with the most observations is:</h2>
+
+<% @user.each do |u| %>
+  <%= u.username %>, with <%= u.observations.count %> observations
+<% end %>

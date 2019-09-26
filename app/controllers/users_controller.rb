@@ -18,6 +18,10 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
     end
 
+    def mostobs
+        @user = User.most_observations
+    end
+
     private
 
     def user_params

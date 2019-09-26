@@ -9,4 +9,6 @@ class User < ApplicationRecord
     validates :username, uniqueness: true
     validates :password, length: { in: 3..15 }
 
+    scope :most_observations, -> { joins(:observations).group(:id).order('count(observations.id) desc').limit(1) }
+
 end
