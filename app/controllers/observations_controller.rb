@@ -26,7 +26,14 @@ class ObservationsController < ApplicationController
         end
     end
     
-    def show        
+    def show
+        @comment_user = {}
+        @observation.comments.each do |comment|
+            if @comment_user[comment.user_id] == nil
+               user = User.find_by_id(comment.user_id)
+               @comment_user[user.id] = user.username
+            end
+        end        
     end
 
     def edit

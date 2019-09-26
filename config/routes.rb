@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
   resources :observations do
     resources :comments
-  end
+  end  
 
   resources :users, only: [:show, :new, :create]
   resources :observations

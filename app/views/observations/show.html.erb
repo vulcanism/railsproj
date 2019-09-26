@@ -2,6 +2,7 @@
 
 <h2><%= @observation.name %></h2>
 <h3>Date: <%= @observation.date.strftime("%Y / %m / %d") %></h3>
+<h3>Recorded by: <%= @observation.user.username %></h3>
 <p>Notes: <%= @observation.note %></p>
 
 <br>
@@ -22,12 +23,20 @@
 <h2>Comment on this observation:</h2>
 <%= form_for @observation.comments.build, :as => :comment, :url => observation_comments_path(@observation) do |f| %>
     <%= f.hidden_field :observation_id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     
-    <%= f.label :content, "New Comment" %>:
-    <%= f.text_area :content %>
+    <%= f.label :content, "New Comment:" %><br>
+    <%= f.text_area :content %><br>
 
     <%= f.submit %>
 
+    <% end %>
+
+<h2>Comments:</h2>
+    <% @observation.comments.each do |comment| %>
+            <%= @comment_user[comment.user_id] %> wrote: 
+            <%= comment.content %><br>
+            <br>        
     <% end %>
 
 <br>
