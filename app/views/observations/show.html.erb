@@ -34,9 +34,11 @@
 
 <h2>Comments:</h2>
     <% @observation.comments.each do |comment| %>
+        <%if comment.id != nil %>
             <%= @comment_user[comment.user_id] %> wrote: 
             <%= comment.content %><br>
-            <br>        
+            <br>
+        <% end %>        
     <% end %>
 
 <br>
