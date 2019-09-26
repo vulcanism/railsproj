@@ -22,6 +22,11 @@
 <h2>Comment on this observation:</h2>
 <%= form_for @observation.comments.build, :as => :comment, :url => observation_comments_path(@observation) do |f| %>
     <%= f.hidden_field :observation_id %>
+    
+    <%= f.label :content, "New Comment" %>:
+    <%= f.text_area :content %>
+
+    <%= f.submit %>
 
     <% end %>
 
