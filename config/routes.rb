@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     resources :cryptids, only: [:new]
   end
 
+  resources :observations do
+    resources :comments
+  end
+
   resources :users, only: [:show, :new, :create]
   resources :observations
   resources :cryptids  
