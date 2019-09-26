@@ -3,7 +3,7 @@ class CreateComments < ActiveRecord::Migration[5.2]
     create_table :comments do |t|
       t.string :content
       t.belongs_to :user
-      t.belongs_to :cryptid
+      t.belongs_to :observation
     end
   end
 end

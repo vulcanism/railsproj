@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
     belongs_to :user
-    belongs_to :cryptid
+    belongs_to :observation
 
     validates :content, presence: true
 

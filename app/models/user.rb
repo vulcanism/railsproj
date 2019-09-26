@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
     has_many :observations
     has_many :cryptids, through: :observations
+    has_many :comments
 
     validates :username, :email, :password, presence: true
     validates :username, uniqueness: true
