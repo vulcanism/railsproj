@@ -17,4 +17,4 @@ Welcome to my Rails application for Flatiron, which allows users to track their 
 The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT)
 
 ## Code of Conduct
-Everyone interacting in the Cryptid Sighter project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
+Everyone interacting in the Rails Cryptid Sighter project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
