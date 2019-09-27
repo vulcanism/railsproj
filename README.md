@@ -11,7 +11,7 @@ Welcome to my Rails application for Flatiron, which allows users to track their 
 
 ## Authors
 
-© 2019 by [Savannah Correll] (https://github.com/vulcanism)
+© 2019 by [Savannah Correll](https://github.com/vulcanism)
 
 ## License
-The app is available as open source under the terms of the [MIT License] (https://opensource.org/licenses/MIT)
+The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT)
